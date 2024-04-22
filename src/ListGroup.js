@@ -9,6 +9,7 @@ import { arrayMoveMutable } from "array-move";
 import { FaTrash } from "react-icons/fa";
 import { FaSave } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
+import { FaEllipsisV, FaClipboardList } from "react-icons/fa";
 
 const SortableItem = sortableElement(
   ({ items, item, index, onEdit, onDelete }) => {
@@ -93,8 +94,8 @@ const SortableItem = sortableElement(
       <ListGroup.Item
         className="d-flex align-items-center"
         style={{
-          backgroundColor: editing ? "#dddddd" : "#895997",
-          color: editing ? "black" : "white",
+          backgroundColor: editing ? "f4ebfe" : "#f4ebfe",
+          color: editing ? "black" : "black",
         }}
       >
         {editing ? (
@@ -102,34 +103,37 @@ const SortableItem = sortableElement(
             <Form.Control
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
-              style={{ width: "60%" }}
+              style={{ width: "80%" }}
             />
             <Form.Control
               type="number"
               value={itemQuantity}
               onChange={(e) => setItemQuantity(e.target.value)}
-              style={{ width: "40%" }}
+              style={{ width: "20%" }}
               min={1}
             />
 
             <Button
-              variant="success"
+              //variant="success"
+              variant="link"
               onClick={() => saveEditing(index, itemName, itemQuantity)}
-              style={{ width: "100px" }}
+              style={{ width: "30px", color: "#562664" }}
             >
               <FaSave />
             </Button>
             <Button
-              variant="danger"
+              // variant="danger"
+              variant="link"
               onClick={deleteEditing}
-              style={{ width: "100px" }}
+              style={{ width: "30px", color: "#562664" }}
             >
               <FaTrash /> {/* This will render the trash icon */}
             </Button>
             <Button
-              variant="secondary"
+              //variant="secondary"
+              variant="link"
               onClick={cancelEditing}
-              style={{ width: "100px" }}
+              style={{ width: "30px", color: "#562664" }}
             >
               <FaTimes /> {/* This will render the cancel icon */}
             </Button>
@@ -152,16 +156,17 @@ const SortableItem = sortableElement(
               </Col>
             </Row>
             <Button
-              variant="outline-light"
+              variant="link"
               onClick={() => startEditing(index)}
               style={{
-                backgroundColor: "#e68e36",
-                color: "white",
+                color: "#562664",
                 opacity: 1,
                 marginLeft: "auto",
+                height: "40px",
+                width: "30px",
               }}
             >
-              Edit
+              <FaEllipsisV />
             </Button>
           </>
         )}
@@ -195,16 +200,18 @@ function ShoppingList({ items, onEdit, onDelete }) {
     <div className="px-4" style={{ width: "70%" }}>
       <div className="d-flex flex-column">
         <ListGroup
-          style={{ backgroundColor: "#562664", width: "100%", height: "100px" }}
+          style={{ backgroundColor: "#562664", width: "100%", height: "83px" }}
         >
           <ListGroup.Item
             className="d-flex align-items-center justify-content-center"
             style={{
               backgroundColor: "#562664",
               color: "white",
-              fontSize: "24px",
+              //fontSize: "24px",
+              fontWeight: "bold",
             }}
           >
+            <FaClipboardList style={{ marginRight: "10px" }} />
             My Shopping List
           </ListGroup.Item>
           <ListGroup.Item
@@ -215,7 +222,13 @@ function ShoppingList({ items, onEdit, onDelete }) {
               width: "100%",
             }}
           >
-            <Row style={{ width: "100%", fontSize: "20px" }}>
+            <Row
+              style={{
+                width: "100%",
+                //fontSize: "20px"
+                fontWeight: "bold",
+              }}
+            >
               <Col xs={6} style={{ width: "80%" }}>
                 Item
               </Col>

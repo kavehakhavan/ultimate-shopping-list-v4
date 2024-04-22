@@ -3,6 +3,19 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import { FaPlus } from "react-icons/fa";
+import { MdAdd } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+import { BsPlus } from "react-icons/bs";
+import { AiOutlinePlus } from "react-icons/ai";
+import { FaPlusCircle } from "react-icons/fa";
+import { MdAddCircleOutline } from "react-icons/md";
+import { IoAddCircleSharp } from "react-icons/io5";
+import { BsPlusCircle } from "react-icons/bs";
+import { MdAddCircle } from "react-icons/md";
+import "./MyStyle.css";
+import { FaShoppingBasket, FaCartPlus } from "react-icons/fa";
+
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 function ShoppingForm({ addItem, errorMessage }) {
   const [itemName, setItemName] = useState("");
@@ -31,25 +44,31 @@ function ShoppingForm({ addItem, errorMessage }) {
       >
         <Form.Control
           aria-label="Item Name"
-          placeholder="Enter Item Name"
+          placeholder="e.g. Orange"
+          //className="custom-input"
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
-          style={{ width: "50%", backgroundColor: "white" }}
+          style={{
+            width: "60%",
+            backgroundColor: "white",
+            //"::placeholder": { fontSize: "20px" }, // Decrease the placeholder font size inline
+          }}
         />
         <Form.Control
           type="number"
-          placeholder="Quantity"
+          placeholder="e.g. 4"
+          //className="custom-input"
           value={itemQuantity}
           onChange={(e) => setItemQuantity(e.target.value)}
           min={1}
-          style={{ width: "30%", backgroundColor: "white" }}
+          style={{ width: "20%", backgroundColor: "white" }}
         />
         <Button
           variant="outline-secondary"
           type="submit"
-          style={{ width: "20%", backgroundColor: "#562664", color: "white" }}
+          style={{ width: "10%", backgroundColor: "#562664", color: "white" }}
         >
-          <FaPlus />
+          <FaPlusCircle style={{ fontSize: "20px" }} />
         </Button>
       </InputGroup>
       {errorMessage && (
